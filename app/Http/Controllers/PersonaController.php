@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Persona;
 
 class PersonaController extends Controller
 {
@@ -13,7 +14,8 @@ class PersonaController extends Controller
      */
     public function index()
     {
-        //
+        $personas = Persona::all();
+        return view('persona.index')->with('personas', $personas);
     }
 
     /**
@@ -23,7 +25,7 @@ class PersonaController extends Controller
      */
     public function create()
     {
-        //
+        return view('persona.create');
     }
 
     /**
@@ -34,7 +36,14 @@ class PersonaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $persona = new Persona();
+        $persona->nombre = $request->get('nombre');
+        $persona->apellido = $request->get('apellido');
+        $persona->correo = $request->get('correo');
+        $persona->direccion = $request->get('direccion');
+        $persona->save();
+
+        return redirect('/personas');
     }
 
     /**
@@ -56,7 +65,8 @@ class PersonaController extends Controller
      */
     public function edit($id)
     {
-        //
+        $persona = Persona::find($id);
+        return view('persona.edit')->with('persona', $persona);
     }
 
     /**
@@ -68,7 +78,14 @@ class PersonaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $persona = Persona::find($id);
+        $persona->nombre = $request->get('nombre');
+        $persona->apellido = $request->get('apellido');
+        $persona->correo = $request->get('correo');
+        $persona->direccion = $request->get('direccion');
+        $persona->save();
+
+        return redirect('/personas');
     }
 
     /**
@@ -79,6 +96,8 @@ class PersonaController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $persona = Persona::find($id);
+        $persona->delete();
+        return redirect('/personas');
     }
 }
