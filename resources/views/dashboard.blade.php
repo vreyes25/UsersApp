@@ -12,4 +12,8 @@
             </div>
         </div>
     </div> -->
+
+    <div class="container">
+        @yield('contenido')
+    </div>
 </x-app-layout>

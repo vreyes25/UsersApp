@@ -1,4 +1,4 @@
-@extends('layouts.vistaprincipal')
+@extends('views.dashboard')
 
 @section('css')
     <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap5.min.css">
@@ -6,7 +6,7 @@
 
 
 @section('contenido')
-    <a href="personas/create" class="btn btn-primary">Nuevo</a>
+    <a href="/personas/create" class="btn btn-primary">Nuevo</a>
 
     <table id="personas" class="table table-dark table-striped mt-2 text-center table-bordered ">
         <thead>

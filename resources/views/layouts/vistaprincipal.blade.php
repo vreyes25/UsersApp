@@ -1,6 +1,3 @@
-@extends('dashboard')
-
-@section('inicio')
 <!doctype html>
 <html lang="en">
   <head>
@@ -27,4 +24,3 @@
 
   </body>
 </html>
-@endsection
