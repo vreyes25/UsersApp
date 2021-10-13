@@ -1,4 +1,4 @@
-@extends('views.dashboard')
+@extends('layouts.vistaprincipal')
 
 @section('css')
     <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap5.min.css">
@@ -6,9 +6,9 @@
 
 
 @section('contenido')
-    <a href="/personas/create" class="btn btn-primary">Nuevo</a>
+    <a href="/personas/create" class="btn btn-outline-primary">Nuevo</a>
 
-    <table id="personas" class="table table-dark table-striped mt-2 text-center table-bordered ">
+    <table id="personas" class="table table-light table-striped mt-2 text-center table-bordered ">
         <thead>
             <tr class="text-uppercase">
                 <th scope="col">ID</th>
@@ -31,8 +31,8 @@
                         <form action="{{ route('personas.destroy', $persona->id) }}" method="POST">
                             @csrf
                             @method('DELETE')
-                            <a href="/personas/{{ $persona->id }}/edit" class="btn btn-primary">Editar</a>
-                            <button type="submit" class="btn btn-danger">Eliminar</button>
+                            <a href="/personas/{{ $persona->id }}/edit" class="btn btn-outline-primary">Editar</a>
+                            <button type="submit" class="btn btn-outline-danger">Eliminar</button>
                         </form>
                     </td>
                 </tr>

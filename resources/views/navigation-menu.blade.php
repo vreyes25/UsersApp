@@ -5,7 +5,7 @@
             <div class="flex">
                 <!-- Logo -->
                 <div class="flex-shrink-0 flex items-center">
-                    <a href="{{ route('dashboard') }}">
+                    <a href="/personas">
                         <!-- <x-jet-application-mark  /> -->
                         <img src="https://cdn.icon-icons.com/icons2/39/PNG/128/users_theuser_6177.png" class="block h-9 w-auto" alt="logo">
                     </a>
@@ -13,7 +13,7 @@
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')" >
+                    <x-jet-nav-link href="/personas" :active="request()->routeIs('/personas')" >
                         {{ __('Registro de Usuarios') }}
                     </x-jet-nav-link>
                 </div>
