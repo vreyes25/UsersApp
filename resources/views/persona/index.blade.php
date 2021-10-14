@@ -6,10 +6,16 @@
 
 @section('header')
     {{ __('Reporte') }}
+    
+@endsection
+
+
+@section('new')
+    <a href="/personas/create" class="btn btn-outline-primary align-items-end">Nuevo</a>
 @endsection
 
 @section('contenido')
-    <a href="/personas/create" class="btn btn-outline-primary">Nuevo</a>
+    
 
     <table id="personas" class="table table-light table-striped mt-2 text-center table-bordered ">
         <thead>
@@ -50,6 +56,37 @@
         <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
         <script>
+            $(document).ready(function() {
+                $('#personas').DataTable({
+                    "language": {
+                        "sProcessing":    "Procesando...",
+                        "sLengthMenu":    "Mostrar _MENU_ registros",
+                        "sZeroRecords":   "No se encontraron resultados",
+                        "sEmptyTable":    "Ningún dato disponible en esta tabla",
+                        "sInfo":          "Mostrando registros del _START_ al _END_ de un total de: _TOTAL_ registros",
+                        "sInfoEmpty":     "Mostrando registros del 0 al 0 de un total de: 0 registros",
+                        "sInfoFiltered":  "(Filtrado de un total de: _MAX_ registros)",
+                        "sInfoPostFix":   "",
+                        "sSearch":        "Buscar:",
+                        "sUrl":           "",
+                        "sInfoThousands":  ",",
+                        "sLoadingRecords": "Cargando...",
+                        "oPaginate": {
+                            "sFirst":    "Primero",
+                            "sLast":    "Último",
+                            "sNext":    "Siguiente",
+                            "sPrevious": "Anterior"
+                        },
+                        "oAria": {
+                            "sSortAscending":  ": Activar para ordenar la columna de manera ascendente",
+                            "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+                        }
+                    }
+                });
+            });
+        </script>
+
+        <script>
             @if(session('update') == "done")
                 Swal.fire(
                     '¡Listo!',
@@ -78,39 +115,6 @@
                 )
             @endif
         </script>            
-
-        <!-- <script>
-
-            // $(".delete-button").submit(function(e) {
-            //     e.preventDefault();
-            // });
-
-            $(".delete-button").on("click", function(e) {
-                e.preventDefault();
-                Swal.fire({
-                    title: '¿Estás seguro?',
-                    text: "El registro se eliminará de forma permanente",
-                    icon: 'warning',
-                    showCancelButton: true,
-                    confirmButtonColor: '#3085d6',
-                    cancelButtonColor: '#d33',
-                    confirmButtonText: 'Si, eliminar'
-                    // cancelButtonText: 'Cancelar'
-                }).then((result) => {
-                    if (result.isConfirmed) {
-                        // Swal.fire(
-                        // '¡Eliminado!',
-                        // 'El registro se eliminó correctamente',
-                        // 'success'
-                        // )
-                        alert(result.value);
-                        this.submit();
-                    } else {
-                        alert("No hay nada aquí")
-                    }
-                })
-            });
-        </script> -->
     @endsection
 
-@endsection
+@endsection 

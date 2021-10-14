@@ -16,7 +16,7 @@
 
             <div>
                 <x-jet-label for="email" value="{{ __('Correo') }}" />
-                <x-jet-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus />
+                <x-jet-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autocomplete=off />
             </div>
 
             <div class="mt-4">
@@ -48,7 +48,7 @@
             @if (Route::has('login'))
                 <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
                     @auth
-                        <a href="{{ url('/personas') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Inicio</a>
+                        <a href="{{ url('/personas') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Login</a>
                     @else
                         <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline"></a>
 
