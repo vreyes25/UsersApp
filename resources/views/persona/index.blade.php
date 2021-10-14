@@ -11,7 +11,7 @@
 
 
 @section('new')
-    <a href="/personas/create" class="btn btn-outline-primary align-items-end">Nuevo</a>
+    <a href="personas/create" class="btn btn-outline-primary align-items-end">Nuevo</a>
 @endsection
 
 @section('contenido')
@@ -40,7 +40,7 @@
                         <form action="{{ route('personas.destroy', $persona->id) }}" method="POST">
                             @csrf
                             @method('DELETE')
-                            <a href="/personas/{{ $persona->id }}/edit" class="btn btn-outline-primary">Editar</a>
+                            <a href="personas/{{ $persona->id }}/edit" class="btn btn-outline-primary">Editar</a>
                             <button type="submit" class="btn btn-outline-danger delete-button focus-off">Eliminar</button>
                         </form>
                     </td>

@@ -5,7 +5,7 @@
 @endsection
 
 @section('contenido')
-    <form action="/personas" method="POST">
+    <form action="{{url('personas')}}" method="POST">
         @csrf
         <div class="mb-3">
             <label for="nombre" class="form-label text-secondary ">Nombre</label>
@@ -23,7 +23,7 @@
             <label for="direccion" class="form-label text-secondary ">Dirección</label>
             <input type="text" class="form-control" id="direccion" name="direccion" placeholder="Ingrese su dirección" tabindex="4" required autocomplete=off>
         </div>
-        <a href="/personas" tabindex="5" class="btn btn-secondary">Cancelar</a>
+        <a href="../personas" tabindex="5" class="btn btn-secondary">Cancelar</a>
         <button type="submit" tabindex="6" class="btn btn-primary">Guardar</button>
     </form>
 @endsection

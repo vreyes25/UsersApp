@@ -5,7 +5,7 @@
 @endsection
 
 @section('contenido')
-    <form action="/personas/{{ $persona->id }}" method="POST">
+    <form action="{{url('personas/'.$persona->id)}}" method="POST">
         @csrf
         @method('PUT')
         <div class="mb-3">
@@ -24,7 +24,7 @@
             <label for="direccion" class="form-label text-secondary ">Dirección</label>
             <input type="text" class="form-control" id="direccion" name="direccion" placeholder="Ingrese su dirección" tabindex="4" required value="{{ $persona->direccion }}">
         </div>
-        <a href="/personas" tabindex="5" class="btn btn-secondary">Cancelar</a>
+        <a href="../personas" tabindex="5" class="btn btn-secondary">Cancelar</a>
         <button type="submit" tabindex="6" class="btn btn-primary">Actualizar</button>
     </form>
 @endsection
