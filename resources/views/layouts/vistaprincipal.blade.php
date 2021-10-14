@@ -2,8 +2,8 @@
 
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Inicio') }}
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight ">
+            @yield('header')
         </h2>
     </x-slot>
 
@@ -14,4 +14,6 @@
             </div>
         </div>
     </div>
+
+    @yield('js')
 </x-app-layout>

@@ -48,7 +48,7 @@ class PersonaController extends Controller
         $persona->direccion = $request->get('direccion');
         $persona->save();
 
-        return redirect('/personas');
+        return redirect('/personas')->with('store','done');
     }
 
     /**
@@ -90,7 +90,7 @@ class PersonaController extends Controller
         $persona->direccion = $request->get('direccion');
         $persona->save();
 
-        return redirect('/personas');
+        return redirect('/personas')->with('update','done');
     }
 
     /**
@@ -103,6 +103,6 @@ class PersonaController extends Controller
     {
         $persona = Persona::find($id);
         $persona->delete();
-        return redirect('/personas');
+        return redirect('/personas')->with('destroy','done');
     }
 }

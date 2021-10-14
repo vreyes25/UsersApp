@@ -4,6 +4,9 @@
     <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap5.min.css">
 @endsection
 
+@section('header')
+    {{ __('Reporte') }}
+@endsection
 
 @section('contenido')
     <a href="/personas/create" class="btn btn-outline-primary">Nuevo</a>
@@ -32,7 +35,7 @@
                             @csrf
                             @method('DELETE')
                             <a href="/personas/{{ $persona->id }}/edit" class="btn btn-outline-primary">Editar</a>
-                            <button type="submit" class="btn btn-outline-danger">Eliminar</button>
+                            <button type="submit" class="btn btn-outline-danger delete-button focus-off">Eliminar</button>
                         </form>
                     </td>
                 </tr>
@@ -44,6 +47,70 @@
         <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
         <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
         <script src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap5.min.js"></script>
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+        <script>
+            @if(session('update') == "done")
+                Swal.fire(
+                    '¡Listo!',
+                    'El registro se actualizó correctamente',
+                    'success'
+                )
+            @endif
+        </script>
+
+        <script>
+            @if(session('store') == "done")
+                Swal.fire(
+                    '¡Listo!',
+                    'El registro se guardó correctamente',
+                    'success'
+                )
+            @endif
+        </script>
+
+        <script>
+            @if(session('destroy') == "done")
+                Swal.fire(
+                    '¡Listo!',
+                    'El registro se eliminó correctamente',
+                    'success'
+                )
+            @endif
+        </script>            
+
+        <!-- <script>
+
+            // $(".delete-button").submit(function(e) {
+            //     e.preventDefault();
+            // });
+
+            $(".delete-button").on("click", function(e) {
+                e.preventDefault();
+                Swal.fire({
+                    title: '¿Estás seguro?',
+                    text: "El registro se eliminará de forma permanente",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Si, eliminar'
+                    // cancelButtonText: 'Cancelar'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        // Swal.fire(
+                        // '¡Eliminado!',
+                        // 'El registro se eliminó correctamente',
+                        // 'success'
+                        // )
+                        alert(result.value);
+                        this.submit();
+                    } else {
+                        alert("No hay nada aquí")
+                    }
+                })
+            });
+        </script> -->
     @endsection
 
 @endsection

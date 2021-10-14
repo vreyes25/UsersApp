@@ -1,7 +1,10 @@
 @extends('layouts.vistaprincipal')
 
+@section('header')
+    {{ __('Nuevo Usuario') }}
+@endsection
+
 @section('contenido')
-    <h5 class="text-secondary text-uppercase mb-lg-4">Formulario | Crear Usuario</h2>
     <form action="/personas" method="POST">
         @csrf
         <div class="mb-3">

@@ -1,7 +1,10 @@
 @extends('layouts.vistaprincipal')
 
+@section('header')
+    {{ __('Editar Usuario') }}
+@endsection
+
 @section('contenido')
-    <h5 class="text-secondary text-uppercase mb-lg-4">Formulario | Editar Usuario</h2>
     <form action="/personas/{{ $persona->id }}" method="POST">
         @csrf
         @method('PUT')
